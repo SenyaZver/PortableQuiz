@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.portablequiz.Routes.mainScreenRoute
-import com.example.portablequiz.Routes.quizScreenRoute
+import com.example.portablequiz.presentation.Routes.mainScreenRoute
+import com.example.portablequiz.presentation.Routes.quizScreenRoute
 import com.example.portablequiz.utils.Constants.questionsAmount
 
 @Composable

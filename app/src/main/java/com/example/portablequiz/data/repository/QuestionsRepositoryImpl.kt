@@ -11,8 +11,8 @@ class QuestionsRepositoryImpl @Inject constructor(
     private val questionsList: MutableList<Question> = mutableListOf()
 
 
-    override suspend fun loadQuestions() {
-        val questions = api.getQuestions()
+    override suspend fun loadQuestions(topic: String) {
+        val questions = api.getQuestions(category = topic)
 
         questionsList.addAll(questions)
 

@@ -3,8 +3,10 @@ package com.example.portablequiz.di
 import com.example.portablequiz.data.Api
 import com.example.portablequiz.data.repository.QuestionsRepositoryImpl
 import com.example.portablequiz.data.repository.ResultRepositoryImpl
+import com.example.portablequiz.data.repository.TopicRepositoryImpl
 import com.example.portablequiz.domain.repository.QuestionsRepository
 import com.example.portablequiz.domain.repository.ResultRepository
+import com.example.portablequiz.domain.repository.TopicRepository
 import com.example.portablequiz.utils.Constants.baseURL
 import dagger.Module
 import dagger.Provides
@@ -17,7 +19,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 object DataModule {
-
     @Provides
     @Singleton
     fun getApi(): Api {
@@ -39,5 +40,11 @@ object DataModule {
     @Singleton
     fun getQuestionsRepository(api : Api): QuestionsRepository {
         return QuestionsRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun getTopicRepository(): TopicRepository {
+        return TopicRepositoryImpl()
     }
 }
