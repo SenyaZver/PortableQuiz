@@ -1,11 +1,13 @@
 package com.example.portablequiz.presentation.main_screen
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Card
@@ -14,10 +16,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.portablequiz.R
 import com.example.portablequiz.presentation.Routes.changeTopicScreenRoute
 import com.example.portablequiz.presentation.Routes.quizScreenRoute
 
@@ -41,6 +45,14 @@ fun MainScreen(navController: NavController) {
                 fontWeight = FontWeight.ExtraBold
             )
         }
+
+        Spacer(Modifier.weight(1f))
+
+        Image(
+            modifier = Modifier.size(200.dp),
+            painter = painterResource(id = R.drawable.quiz),
+            contentDescription = "Quiz")
+
         Spacer(Modifier.weight(1f))
 
         Button(
