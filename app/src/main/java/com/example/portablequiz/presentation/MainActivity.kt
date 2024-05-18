@@ -1,4 +1,4 @@
-package com.example.portablequiz
+package com.example.portablequiz.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,11 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.portablequiz.Routes.mainScreenRoute
-import com.example.portablequiz.Routes.quizScreenRoute
-import com.example.portablequiz.Routes.resultScreenRoute
+import com.example.portablequiz.presentation.Routes.changeTopicScreenRoute
+import com.example.portablequiz.presentation.Routes.mainScreenRoute
+import com.example.portablequiz.presentation.Routes.quizScreenRoute
+import com.example.portablequiz.presentation.Routes.resultScreenRoute
 import com.example.portablequiz.presentation.main_screen.MainScreen
 import com.example.portablequiz.presentation.quiz_screen.QuizScreen
+import com.example.portablequiz.presentation.change_topic_screen.ChangeTopicScreen
 import com.example.portablequiz.presentation.result_screen.ResultScreen
 import com.example.portablequiz.presentation.theme.PortableQuizTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,6 +42,9 @@ class MainActivity : ComponentActivity() {
                         composable(resultScreenRoute) {
                             ResultScreen(navController)
                         }
+                        composable(changeTopicScreenRoute) {
+                            ChangeTopicScreen(navController)
+                        }
                     }
                 }
 
@@ -53,4 +58,5 @@ object Routes {
     val mainScreenRoute = "StartScreen"
     val quizScreenRoute = "QuizScreen"
     val resultScreenRoute = "ResultScreen"
+    val changeTopicScreenRoute = "ChangeTopicScreen"
 }

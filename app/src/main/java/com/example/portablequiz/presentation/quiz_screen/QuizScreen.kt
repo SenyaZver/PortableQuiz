@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.portablequiz.Routes.resultScreenRoute
+import com.example.portablequiz.presentation.Routes.resultScreenRoute
 import com.example.portablequiz.utils.Constants.questionsAmount
 
 
@@ -99,6 +99,7 @@ fun QuizScreen(
             ) {
                 items(state.value.answers!!.size) {index ->
                     Button(
+                        modifier = Modifier.padding(10.dp),
                         onClick = {
                             viewModel.chooseAnswer(index)
                         },

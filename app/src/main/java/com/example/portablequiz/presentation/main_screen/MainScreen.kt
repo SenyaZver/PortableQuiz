@@ -18,7 +18,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.portablequiz.Routes.quizScreenRoute
+import com.example.portablequiz.presentation.Routes.changeTopicScreenRoute
+import com.example.portablequiz.presentation.Routes.quizScreenRoute
 
 @Composable
 fun MainScreen(navController: NavController) {
@@ -43,7 +44,9 @@ fun MainScreen(navController: NavController) {
         Spacer(Modifier.weight(1f))
 
         Button(
-            onClick = {},
+            onClick = {
+                navController.navigate(changeTopicScreenRoute)
+            },
             shape = RoundedCornerShape(32.dp)
         ) {
             Text(

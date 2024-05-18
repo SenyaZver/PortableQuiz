@@ -10,7 +10,7 @@ class QuestionsRepositoryImplTest: QuestionsRepository {
 
 
 
-    override suspend fun loadQuestions() {
+    override suspend fun loadQuestions(topic: String) {
         delay(1000L)
 
         for (i in 0 until questionsAmount) {

@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.portablequiz.data.entity.Question
+import com.example.portablequiz.domain.usecases.GetCurrentTopicUseCase
 import com.example.portablequiz.domain.usecases.GetQuestionUseCase
 import com.example.portablequiz.domain.usecases.LoadQuestionsUseCase
 import com.example.portablequiz.domain.usecases.SaveScoreUseCase
@@ -23,7 +24,8 @@ import com.example.portablequiz.utils.Result
 class QuizScreenViewModel @Inject constructor(
     private val loadQuestionsUseCase: LoadQuestionsUseCase,
     private val getQuestionUseCase: GetQuestionUseCase,
-    private val saveScoreUseCase: SaveScoreUseCase
+    private val saveScoreUseCase: SaveScoreUseCase,
+    private val getCurrentTopicUseCase: GetCurrentTopicUseCase
 ): ViewModel() {
     private val _state = MutableStateFlow(QuizScreenData())
     val state = _state.asStateFlow()
@@ -31,7 +33,8 @@ class QuizScreenViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            loadQuestionsUseCase.execute()
+            val currentTopic = getCurrentTopicUseCase.execute()
+            loadQuestionsUseCase.execute(currentTopic)
 
             loadQuestion(0)
         }
