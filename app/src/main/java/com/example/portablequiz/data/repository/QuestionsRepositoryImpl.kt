@@ -10,7 +10,6 @@ class QuestionsRepositoryImpl @Inject constructor(
 ) : QuestionsRepository {
     private val questionsList: MutableList<Question> = mutableListOf()
 
-
     override suspend fun loadQuestions(topic: String) {
         val questions = api.getQuestions(category = topic)
 
